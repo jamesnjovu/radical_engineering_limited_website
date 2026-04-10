@@ -102,8 +102,8 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="footer__bottom">
         <div className="footer__bottom-container">
-          <p>&copy; 2025 Radical Engineering Limited. All Rights Reserved.</p>
-          <p>TPIN: 2368903494</p>
+          <p>&copy; {new Date().getFullYear()} Radical Engineering Limited. All Rights Reserved.</p>
+          <p>Powered by <a href="https://techrode.co" target="_blank" rel="noopener noreferrer" className="footer__powered-link">Techrode Solution Limited</a></p>
         </div>
       </div>
     </footer>
