@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import ScrollReveal from "../components/ScrollReveal";
 import ProductCard from "../components/ProductCard";
 import products from "../data/products";
@@ -23,6 +24,12 @@ const Products = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Solar Products | Radical Engineering Limited - Inverters, Batteries & Panels</title>
+        <meta name="description" content="Browse our range of solar products including hybrid inverters, lithium batteries, solar PV modules, and portable power stations from top manufacturers like Hanchu ESS and MUST." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/products" />
+      </Helmet>
+
       {/* Page Banner */}
       <section className="page-banner" style={{ backgroundImage: "url(/images/solar_products.jpg)" }}>
         <h1>Our Products</h1>

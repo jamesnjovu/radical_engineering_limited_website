@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaSolarPanel,
   FaBuilding,
@@ -261,6 +262,12 @@ const ServiceDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{service.title} | Radical Engineering Limited - Zambia</title>
+        <meta name="description" content={service.intro} />
+        <link rel="canonical" href={`https://radicalengineering.co.zm/services/${slug}`} />
+      </Helmet>
+
       {/* Hero Banner */}
       <section
         className="service-hero"

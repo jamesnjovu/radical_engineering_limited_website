@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaSolarPanel,
   FaBuilding,
@@ -108,6 +109,12 @@ const serviceDetails = [
 const Services = () => {
   return (
     <>
+      <Helmet>
+        <title>Our Services | Radical Engineering Limited - Solar, Civil, Electrical & Mining</title>
+        <meta name="description" content="Explore our EPC services: solar energy installations, civil & structural engineering, electrical engineering, mining engineering, and general supplies in Zambia." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/services" />
+      </Helmet>
+
       {/* Page Banner */}
       <section className="page-banner" style={{ backgroundImage: 'url(/images/FB_IMG_1750417449025.jpg)' }}>
         <h1>Our Services</h1>

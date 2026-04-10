@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { FaTimes } from "react-icons/fa";
 import ScrollReveal from "../components/ScrollReveal";
 import projects from "../data/projects";
@@ -34,6 +35,12 @@ const Projects = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Our Projects | Radical Engineering Limited - Portfolio in Zambia</title>
+        <meta name="description" content="View our project portfolio: solar installations, road construction, drainage systems, electrical pole-line installations, mining equipment setups, and industrial infrastructure across Zambia." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/projects" />
+      </Helmet>
+
       {/* Page Banner */}
       <section className="page-banner" style={{ backgroundImage: "url(/images/works.jpeg)" }}>
         <h1>Our Projects</h1>

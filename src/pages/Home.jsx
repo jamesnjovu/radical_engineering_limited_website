@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaSolarPanel,
   FaBuilding,
@@ -226,6 +227,12 @@ const whyChooseItems = [
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Radical Engineering Limited | Solar, Civil, Electrical & Mining EPC in Zambia</title>
+        <meta name="description" content="Radical Engineering Limited is a leading EPC company in Lusaka, Zambia. We specialize in solar energy installations, civil engineering, electrical engineering, mining engineering, and general supplies." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/" />
+      </Helmet>
+
       {/* Hero */}
       <HeroCarousel />
 

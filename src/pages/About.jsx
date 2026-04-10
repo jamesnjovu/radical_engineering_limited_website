@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaEye,
   FaBullseye,
@@ -81,6 +82,12 @@ const certifications = [
 const About = () => {
   return (
     <>
+      <Helmet>
+        <title>About Us | Radical Engineering Limited - EPC Company in Zambia</title>
+        <meta name="description" content="Learn about Radical Engineering Limited, a Zambia-based EPC company founded in 2020. Specializing in solar energy, civil, electrical & mining engineering in Lusaka." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/about" />
+      </Helmet>
+
       {/* Page Banner */}
       <section className="page-banner" style={{ backgroundImage: "url(/images/machinary.jpeg)" }}>
         <h1>About Us</h1>

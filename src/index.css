@@ -463,20 +463,6 @@ a[class*="__link"]:hover .icon {
   100% { transform: scale(1); }
 }
 
-/* Smooth page transition feel */
-main {
-  animation: pageEnter 0.4s ease;
-}
-
-@keyframes pageEnter {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .section {
@@ -497,7 +483,6 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .btn,
-  main,
   .stat-item,
   .page-banner h1,
   .page-banner .breadcrumb {

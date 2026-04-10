@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   FaPhone,
   FaEnvelope,
@@ -41,6 +42,12 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us | Radical Engineering Limited - Get a Quote</title>
+        <meta name="description" content="Contact Radical Engineering Limited in Lusaka, Zambia. Get a free consultation for solar installations, civil engineering, electrical projects, and more. Call +260 969 722 376." />
+        <link rel="canonical" href="https://radicalengineering.co.zm/contact" />
+      </Helmet>
+
       {/* Page Banner */}
       <section className="page-banner" style={{ backgroundImage: "url(/images/machinary2.jpeg)" }}>
         <h1>Contact Us</h1>
