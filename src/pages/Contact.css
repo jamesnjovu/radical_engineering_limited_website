@@ -135,9 +135,33 @@
   font-size: 1rem;
 }
 
+.contact-form .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .form-success {
   background: rgba(16, 185, 129, 0.1);
   color: var(--color-success);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.form-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
   padding: 1rem;
   border-radius: var(--radius-sm);
   text-align: center;

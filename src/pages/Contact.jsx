@@ -1,16 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import emailjs from "@emailjs/browser";
 import {
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPaperPlane,
+  FaSpinner,
 } from "react-icons/fa";
 import ScrollReveal from "../components/ScrollReveal";
 import "./Contact.css";
 
+const EMAILJS_SERVICE_ID = "service_c1qfv9n";
+const EMAILJS_TEMPLATE_ID = "template_rauomdd";
+const EMAILJS_PUBLIC_KEY = "w0LUb56c2Bx22ogny";
+
 const Contact = () => {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +26,7 @@ const Contact = () => {
     service: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,17 +34,40 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In production, this would send to a backend/email service
-    setSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      service: "",
-      message: "",
-    });
-    setTimeout(() => setSubmitted(false), 5000);
+    setStatus("sending");
+
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          service: formData.service,
+          message: formData.message,
+          to_email: 'radicalengineering22@gmail.com',
+        },
+        EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          service: "",
+          message: "",
+        });
+        setTimeout(() => setStatus("idle"), 5000);
+      })
+      .catch((err) => {
+        console.error("EmailJS error:", err);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      });
   };
 
   return (
@@ -112,7 +142,7 @@ const Contact = () => {
                   within 24 hours.
                 </p>
 
-                <form className="contact-form" onSubmit={handleSubmit}>
+                <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="name">Full Name</label>
@@ -203,14 +233,29 @@ const Contact = () => {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary">
-                    <FaPaperPlane /> Send Message
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={status === "sending"}
+                  >
+                    {status === "sending" ? (
+                      <><FaSpinner className="spinner" /> Sending...</>
+                    ) : (
+                      <><FaPaperPlane /> Send Message</>
+                    )}
                   </button>
 
-                  {submitted && (
+                  {status === "success" && (
                     <div className="form-success">
                       Thank you! Your message has been sent successfully. We
                       will get back to you shortly.
+                    </div>
+                  )}
+
+                  {status === "error" && (
+                    <div className="form-error">
+                      Something went wrong. Please try again or contact us
+                      directly at radicalengineering22@gmail.com
                     </div>
                   )}
                 </form>
@@ -218,7 +263,7 @@ const Contact = () => {
 
             </ScrollReveal>
 
-              {/* Google Maps */}
+            {/* Google Maps */}
             <ScrollReveal direction="right" delay={200}>
               <div className="contact-map">
                 <iframe
