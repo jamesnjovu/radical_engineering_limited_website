@@ -92,14 +92,16 @@ const About = () => {
       {/* Company Story */}
       <section className="section">
         <div className="container">
-          <ScrollReveal>
-            <div className="about-story">
+          <div className="about-story">
+            <ScrollReveal direction="left">
               <div className="about-story__image">
                 <img
                   src="/images/WhatsApp Image 2026-03-28 at 22.02.42 (2).jpeg"
                   alt="Radical Engineering team at work"
                 />
               </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={200}>
               <div className="about-story__content">
                 <h2>Our Story</h2>
                 <p>
@@ -126,8 +128,8 @@ const About = () => {
                   general supplies.
                 </p>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -141,8 +143,8 @@ const About = () => {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal>
-            <div className="vision-mission__grid">
+          <div className="vision-mission__grid">
+            <ScrollReveal direction="left">
               <div className="vision-mission__card">
                 <div className="vision-mission__icon">
                   <FaEye />
@@ -155,6 +157,8 @@ const About = () => {
                   &amp; Sustainable Energy Independence.
                 </p>
               </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={200}>
               <div className="vision-mission__card">
                 <div className="vision-mission__icon">
                   <FaBullseye />
@@ -167,8 +171,8 @@ const About = () => {
                   Rooted in Trust, Quality &amp; Reliability.
                 </p>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 

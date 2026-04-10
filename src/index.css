@@ -260,16 +260,221 @@ ul {
   color: var(--color-accent);
 }
 
-/* Scroll Reveal Animation */
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal--up {
+  transform: translateY(40px);
+}
+
+.reveal--down {
+  transform: translateY(-40px);
+}
+
+.reveal--left {
+  transform: translateX(-40px);
+}
+
+.reveal--right {
+  transform: translateX(40px);
+}
+
+.reveal--zoom {
+  transform: scale(0.9);
 }
 
 .reveal.visible {
   opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* ============================================
+   PAGE BANNER ANIMATIONS
+   ============================================ */
+.page-banner h1 {
+  animation: bannerSlideDown 0.8s ease forwards;
+}
+
+.page-banner .breadcrumb {
+  animation: bannerFadeIn 1s 0.3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes bannerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bannerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   GLOBAL HOVER & INTERACTION ANIMATIONS
+   ============================================ */
+
+/* Buttons */
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
   transform: translateY(0);
+}
+
+/* Links with arrow slide */
+a[class*="__link"]:hover svg,
+a[class*="__link"]:hover .icon {
+  transform: translateX(4px);
+  transition: transform 0.3s ease;
+}
+
+/* Image zoom on hover */
+.product-card:hover .product-card__image img,
+.about-teaser__image:hover img,
+.about-story__image:hover img {
+  transform: scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Section header underline grow */
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible .section-header h2::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Card stagger animation for grids */
+.reveal.visible .service-card,
+.reveal.visible .why-choose-item,
+.reveal.visible .core-value-card,
+.reveal.visible .cert-card {
+  animation: cardFadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+.reveal.visible .service-card:nth-child(1),
+.reveal.visible .why-choose-item:nth-child(1),
+.reveal.visible .core-value-card:nth-child(1),
+.reveal.visible .cert-card:nth-child(1) { animation-delay: 0ms; }
+
+.reveal.visible .service-card:nth-child(2),
+.reveal.visible .why-choose-item:nth-child(2),
+.reveal.visible .core-value-card:nth-child(2),
+.reveal.visible .cert-card:nth-child(2) { animation-delay: 100ms; }
+
+.reveal.visible .service-card:nth-child(3),
+.reveal.visible .why-choose-item:nth-child(3),
+.reveal.visible .core-value-card:nth-child(3),
+.reveal.visible .cert-card:nth-child(3) { animation-delay: 200ms; }
+
+.reveal.visible .service-card:nth-child(4),
+.reveal.visible .why-choose-item:nth-child(4),
+.reveal.visible .core-value-card:nth-child(4),
+.reveal.visible .cert-card:nth-child(4) { animation-delay: 300ms; }
+
+.reveal.visible .service-card:nth-child(5),
+.reveal.visible .why-choose-item:nth-child(5),
+.reveal.visible .core-value-card:nth-child(5),
+.reveal.visible .cert-card:nth-child(5) { animation-delay: 400ms; }
+
+.reveal.visible .service-card:nth-child(6),
+.reveal.visible .why-choose-item:nth-child(6),
+.reveal.visible .core-value-card:nth-child(6) { animation-delay: 500ms; }
+
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stat items stagger */
+.stat-item {
+  animation: statPop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0ms; }
+.stat-item:nth-child(2) { animation-delay: 150ms; }
+.stat-item:nth-child(3) { animation-delay: 300ms; }
+.stat-item:nth-child(4) { animation-delay: 450ms; }
+
+@keyframes statPop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Icon pulse on card hover */
+.service-card:hover .service-card__icon,
+.why-choose-item:hover .why-choose-item__icon,
+.core-value-card:hover .core-value-card__icon,
+.cert-card:hover .cert-card__icon {
+  animation: iconPulse 0.4s ease;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Smooth page transition feel */
+main {
+  animation: pageEnter 0.4s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsive */
@@ -280,5 +485,33 @@ ul {
 
   .section-header {
     margin-bottom: 2.5rem;
+  }
+
+  .reveal--left,
+  .reveal--right {
+    transform: translateY(30px);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .btn,
+  main,
+  .stat-item,
+  .page-banner h1,
+  .page-banner .breadcrumb {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal.visible .service-card,
+  .reveal.visible .why-choose-item,
+  .reveal.visible .core-value-card,
+  .reveal.visible .cert-card {
+    animation: none !important;
+    opacity: 1 !important;
   }
 }

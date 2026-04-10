@@ -95,8 +95,8 @@ const Contact = () => {
           </ScrollReveal>
 
           {/* Form & Map */}
-          <ScrollReveal>
-            <div className="contact-content">
+          <div className="contact-content">
+            <ScrollReveal direction="left">
               {/* Contact Form */}
               <div className="contact-form-wrapper">
                 <h3>Send Us a Message</h3>
@@ -209,7 +209,10 @@ const Contact = () => {
                 </form>
               </div>
 
+            </ScrollReveal>
+
               {/* Google Maps */}
+            <ScrollReveal direction="right" delay={200}>
               <div className="contact-map">
                 <iframe
                   title="Radical Engineering Location"
@@ -219,8 +222,8 @@ const Contact = () => {
                   allowFullScreen
                 />
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </>

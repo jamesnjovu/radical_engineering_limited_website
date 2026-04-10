@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 
-const ScrollReveal = ({ children }) => {
+const ScrollReveal = ({ children, direction = "up", delay = 0 }) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -23,8 +23,14 @@ const ScrollReveal = ({ children }) => {
     return () => observer.disconnect();
   }, []);
 
+  const dirClass = `reveal--${direction}`;
+
   return (
-    <div ref={ref} className={`reveal ${isVisible ? "visible" : ""}`}>
+    <div
+      ref={ref}
+      className={`reveal ${dirClass} ${isVisible ? "visible" : ""}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       {children}
     </div>
   );

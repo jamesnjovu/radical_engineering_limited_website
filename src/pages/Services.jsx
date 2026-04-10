@@ -123,15 +123,17 @@ const Services = () => {
           key={service.id}
         >
           <div className="container">
-            <ScrollReveal>
-              <div
-                className={`service-detail ${
-                  index % 2 !== 0 ? "reverse" : ""
-                }`}
-              >
+            <div
+              className={`service-detail ${
+                index % 2 !== 0 ? "reverse" : ""
+              }`}
+            >
+              <ScrollReveal direction={index % 2 === 0 ? "left" : "right"}>
                 <div className="service-detail__image">
                   <img src={service.image} alt={service.title} />
                 </div>
+              </ScrollReveal>
+              <ScrollReveal direction={index % 2 === 0 ? "right" : "left"} delay={200}>
                 <div className="service-detail__content">
                   <h2>
                     <span className="service-icon">
@@ -150,8 +152,8 @@ const Services = () => {
                     Learn More <FaArrowRight />
                   </Link>
                 </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
       ))}

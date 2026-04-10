@@ -264,14 +264,16 @@ const Home = () => {
       {/* About Teaser */}
       <section className="section">
         <div className="container">
-          <ScrollReveal>
-            <div className="about-teaser">
+          <div className="about-teaser">
+            <ScrollReveal direction="left">
               <div className="about-teaser__image">
                 <img
                   src="/images/WhatsApp Image 2026-03-28 at 22.02.42 (2).jpeg"
                   alt="Radical Engineering team"
                 />
               </div>
+            </ScrollReveal>
+            <ScrollReveal direction="right" delay={200}>
               <div className="about-teaser__content">
                 <h2>About Radical Engineering</h2>
                 <p>
@@ -290,8 +292,8 @@ const Home = () => {
                   Learn More
                 </Link>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -325,7 +327,7 @@ const Home = () => {
       </section>
 
       {/* CTA Banner */}
-      <ScrollReveal>
+      <ScrollReveal direction="zoom">
         <section className="cta-banner">
           <div className="container">
             <h2>Ready to Power Your Next Project?</h2>
