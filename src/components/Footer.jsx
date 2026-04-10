@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaLinkedin, FaFacebook } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
@@ -36,6 +36,14 @@ const Footer = () => {
               Zambia providing innovative solutions in solar energy, civil
               engineering, electrical engineering, mining, and general supplies.
             </p>
+            <div className="footer__socials">
+              <a href="https://www.linkedin.com/in/radical-engineering-limited-151324381" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="https://web.facebook.com/profile.php?id=61559254805830" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebook />
+              </a>
+            </div>
           </div>
 
           {/* Column 2: Quick Links */}
