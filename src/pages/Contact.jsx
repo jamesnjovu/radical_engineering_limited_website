@@ -12,9 +12,9 @@ import {
 import ScrollReveal from "../components/ScrollReveal";
 import "./Contact.css";
 
-const EMAILJS_SERVICE_ID = "service_c1qfv9n";
-const EMAILJS_TEMPLATE_ID = "template_rauomdd";
-const EMAILJS_PUBLIC_KEY = "w0LUb56c2Bx22ogny";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
   const formRef = useRef(null);
