@@ -42,7 +42,7 @@ const Contact = () => {
   return (
     <>
       {/* Page Banner */}
-      <section className="page-banner" style={{ backgroundImage: "url(/images/WhatsApp Image 2026-02-10 at 18.38.02 (1).jpeg)" }}>
+      <section className="page-banner" style={{ backgroundImage: "url(/images/machinary2.jpeg)" }}>
         <h1>Contact Us</h1>
         <div className="breadcrumb">
           <Link to="/">Home</Link> &nbsp;/&nbsp; Contact

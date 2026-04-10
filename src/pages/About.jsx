@@ -82,7 +82,7 @@ const About = () => {
   return (
     <>
       {/* Page Banner */}
-      <section className="page-banner" style={{ backgroundImage: "url(/images/WhatsApp Image 2026-03-23 at 13.12.11.jpeg)" }}>
+      <section className="page-banner" style={{ backgroundImage: "url(/images/machinary.jpeg)" }}>
         <h1>About Us</h1>
         <div className="breadcrumb">
           <Link to="/">Home</Link> &nbsp;/&nbsp; About
