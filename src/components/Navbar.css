@@ -25,6 +25,12 @@
 .navbar__logo img {
   height: 45px;
   width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.navbar.scrolled .navbar__logo img {
+  filter: none;
 }
 
 .navbar__links {
@@ -38,12 +44,16 @@
 
 .navbar__link {
   text-decoration: none;
-  color: #1a1a2e;
+  color: #fff;
   font-weight: 500;
   font-size: 0.95rem;
   position: relative;
   transition: color 0.3s ease;
   padding: 0.25rem 0;
+}
+
+.navbar.scrolled .navbar__link {
+  color: #1a1a2e;
 }
 
 .navbar__link::after {
@@ -58,6 +68,10 @@
 }
 
 .navbar__link:hover {
+  color: #f59e0b;
+}
+
+.navbar.scrolled .navbar__link:hover {
   color: #0d389b;
 }
 
@@ -69,6 +83,10 @@
 .navbar__link--active {
   color: #f59e0b;
   font-weight: 600;
+}
+
+.navbar.scrolled .navbar__link--active {
+  color: #f59e0b;
 }
 
 /* Dropdown arrow */
@@ -160,19 +178,31 @@
 .navbar__btn {
   display: inline-block;
   padding: 0.6rem 1.4rem;
-  background: #0d389b;
+  background: transparent;
   color: #fff;
+  border: 2px solid #fff;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .navbar__btn:hover {
-  background: #0a2d7a;
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   transform: translateY(-1px);
+}
+
+.navbar.scrolled .navbar__btn {
+  background: #0d389b;
+  color: #fff;
+  border-color: #0d389b;
+}
+
+.navbar.scrolled .navbar__btn:hover {
+  background: #0a2d7a;
+  border-color: #0a2d7a;
 }
 
 .navbar__links-cta {
@@ -184,9 +214,14 @@
   background: none;
   border: none;
   font-size: 28px;
-  color: #1a1a2e;
+  color: #fff;
   cursor: pointer;
   z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .navbar__hamburger {
+  color: #1a1a2e;
 }
 
 .navbar__overlay {
@@ -244,6 +279,13 @@
     padding: 0.85rem 0;
     font-size: 1.05rem;
     border-bottom: 1px solid #f0f0f0;
+    color: #1a1a2e;
+  }
+
+  .navbar__links .navbar__btn {
+    background: #0d389b;
+    color: #fff;
+    border-color: #0d389b;
   }
 
   /* Hide desktop dropdown */

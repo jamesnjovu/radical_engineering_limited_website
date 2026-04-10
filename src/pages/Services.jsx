@@ -109,7 +109,7 @@ const Services = () => {
   return (
     <>
       {/* Page Banner */}
-      <section className="page-banner" style={{ backgroundImage: 'url(/images/solar roof 2.jpeg)' }}>
+      <section className="page-banner" style={{ backgroundImage: 'url(/images/WhatsApp Image 2026-03-19 at 15.10.35.jpeg)' }}>
         <h1>Our Services</h1>
         <div className="breadcrumb">
           <Link to="/">Home</Link> &nbsp;/&nbsp; Services

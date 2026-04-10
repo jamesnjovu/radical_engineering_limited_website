@@ -35,7 +35,7 @@ const Projects = () => {
   return (
     <>
       {/* Page Banner */}
-      <section className="page-banner" style={{ backgroundImage: "url(/images/road constructed.jpeg)" }}>
+      <section className="page-banner" style={{ backgroundImage: "url(/images/works.jpeg)" }}>
         <h1>Our Projects</h1>
         <div className="breadcrumb">
           <Link to="/">Home</Link> &nbsp;/&nbsp; Projects
